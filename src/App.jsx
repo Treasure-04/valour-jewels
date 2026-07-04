@@ -11,6 +11,8 @@ import SearchResults from './pages/SearchResults'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import TrackOrder from './pages/TrackOrder'
+import Wishlist from './pages/Wishlist'
+import Login from './pages/Login'
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/track-order" element={<TrackOrder />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </>

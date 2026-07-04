@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Search, User, ShoppingBag, Menu, X, Heart } from 'lucide-react'
 import { useCart } from '../context/CartContext'
+import { useAuth } from '../context/AuthContext'
 
 const menuLinks = [
   { label: 'Home', path: '/' },
@@ -30,8 +31,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('menu')
   const navigate = useNavigate()
-
   const { cartCount } = useCart()
+  const { user, logout } = useAuth()
 
   const handleSearch = (e) => {
     e.preventDefault()
@@ -123,6 +124,15 @@ export default function Navbar() {
                   {item.label}
                 </Link>
               ))}
+
+              {activeTab === 'menu' && user && (
+                <button
+                  onClick={() => { logout(); closeMenu(); }}
+                  style={{ ...styles.drawerLink, background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer', color: '#b23b3b' }}
+                >
+                  Logout ({user.email})
+                </button>
+              )}
             </div>
           </div>
         </div>
