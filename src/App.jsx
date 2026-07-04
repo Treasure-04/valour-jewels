@@ -7,6 +7,10 @@ import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
 import OrderSuccess from './pages/OrderSuccess'
 import Footer from './components/Footer'
+import SearchResults from './pages/SearchResults'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import TrackOrder from './pages/TrackOrder'
 
 function App() {
   return (
@@ -19,6 +23,10 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/order-success" element={<OrderSuccess />} />
+        <Route path="/search" element={<SearchResults />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/track-order" element={<TrackOrder />} />
       </Routes>
       <>
   <Navbar />
