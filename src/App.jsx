@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import Category from './pages/Category'
 import ProductDetail from './pages/ProductDetail'
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
 import OrderSuccess from './pages/OrderSuccess'
-import Footer from './components/Footer'
 import SearchResults from './pages/SearchResults'
 import About from './pages/About'
 import Contact from './pages/Contact'
@@ -28,13 +28,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/track-order" element={<TrackOrder />} />
       </Routes>
-      <>
-  <Navbar />
-  <Routes>
-    ...
-  </Routes>
-  <Footer />
-</>
+      <Footer />
     </>
   )
 }
