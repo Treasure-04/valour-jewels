@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import products from '../data/products'
 
 const heroImages = [
   'https://images.unsplash.com/photo-1492714485642-dd6df6baafa2?w=1200&h=700&fit=crop&q=80',
@@ -8,6 +9,8 @@ const heroImages = [
   'https://images.unsplash.com/photo-1655255114527-d0a834d9a774?w=1200&h=700&fit=crop&q=80',
   'https://images.unsplash.com/photo-1631729670375-7b9bc6ba6c07?w=1200&h=700&fit=crop&q=80',
 ]
+
+const categories = ['rings', 'earrings', 'necklaces', 'bracelets', 'watches', 'beads', 'anklets', 'jewelry-sets', 'jewelry-boxes', 'beanies']
 
 export default function Home() {
   const [currentImage, setCurrentImage] = useState(0)
@@ -49,15 +52,21 @@ export default function Home() {
       <section style={styles.categoriesSection}>
         <h2 style={styles.sectionTitle}>Shop by Category</h2>
         <div style={styles.categoryGrid}>
-          {['Rings', 'Earrings', 'Necklaces', 'Bracelets', 'Watches', 'Beads', 'Anklets', 'Jewelry Sets', 'Jewelry Boxes', 'Beanies'].map((cat) => (
-            <Link
-              key={cat}
-              to={`/category/${cat.toLowerCase().replace(' ', '-')}`}
-              style={styles.categoryCard}
-            >
-              {cat}
-            </Link>
-          ))}
+          {categories.map((cat) => {
+            const sampleProduct = products.find((p) => p.category === cat)
+            return (
+              <Link key={cat} to={`/category/${cat}`} style={styles.categoryCard}>
+                <img
+                  src={sampleProduct?.image}
+                  alt={cat}
+                  style={styles.categoryImage}
+                />
+                <p style={styles.categoryLabel}>
+                  {cat.replace('-', ' ')}
+                </p>
+              </Link>
+            )
+          })}
         </div>
       </section>
     </div>
@@ -153,11 +162,21 @@ const styles = {
     backgroundColor: '#fff',
     border: '1px solid #e8ddd0',
     borderRadius: '12px',
-    padding: '24px 12px',
+    overflow: 'hidden',
     textAlign: 'center',
     color: '#4a2f1f',
     textDecoration: 'none',
     fontWeight: '600',
     fontSize: '14px',
+  },
+  categoryImage: {
+    width: '100%',
+    height: '120px',
+    objectFit: 'cover',
+    display: 'block',
+  },
+  categoryLabel: {
+    padding: '12px',
+    textTransform: 'capitalize',
   },
 }
