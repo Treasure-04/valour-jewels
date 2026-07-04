@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { Instagram, MessageCircle } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -10,9 +9,9 @@ export default function Footer() {
       </p>
 
       <div style={styles.socials}>
-        <a href="#" style={styles.iconCircle}><Instagram size={18} color="#faf6f0" /></a>
-        <a href="#" style={styles.iconCircle}><MessageCircle size={18} color="#faf6f0" /></a>
-      </div>
+  <a href="#" style={styles.iconCircle}>📷</a>
+  <a href="#" style={styles.iconCircle}>✈️</a>
+</div>
 
       <div style={styles.linksRow}>
         <Link to="/" style={styles.link}>Home</Link>
