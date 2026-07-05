@@ -7,6 +7,7 @@ export default function Footer() {
         At Valour Jewels, we're passionate about bringing you timeless, high-quality
         jewelry pieces you'll love. Shop today and discover pieces crafted to make you shine.
       </p>
+      <p style={styles.location}>📍 Ogbogoro by Ozuoba, Port Harcourt, Nigeria</p>
 
       <div style={styles.socials}>
   <a href="#" style={styles.iconCircle}>📷</a>
@@ -75,4 +76,9 @@ const styles = {
     color: '#a8917d',
     fontSize: '12px',
   },
+  location: {
+  color: '#d4af8c',
+  fontSize: '13px',
+  marginBottom: '24px',
+},
 }
